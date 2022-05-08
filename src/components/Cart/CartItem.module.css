@@ -1,0 +1,31 @@
+.cart-item {
+    background-color: #444;
+    padding: 15px;
+}
+
+.description {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-item h3 {
+    display: inline;
+    font-size: 1.5rem;
+}
+
+.price h3 {
+    margin-right: 5px;
+}
+
+.price span {
+    font-style: italic;
+}
+
+.amount{
+    display: flex;
+    justify-content: space-between;
+}
+
+.actions button {
+    margin-left: 5px;
+}

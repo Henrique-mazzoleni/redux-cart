@@ -1,0 +1,8 @@
+.cart-size {
+    background-color: tan;
+    border: 1px solid tan;
+    border-radius: 15px;
+    color: initial;
+    padding: 3px 15px;
+    margin-left: 15px;
+}
