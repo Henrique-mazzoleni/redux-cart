@@ -5,7 +5,7 @@ import CartItem from "./CartItem";
 import styles from "./Cart.module.css";
 
 const Cart = () => {
-  const cartList = useSelector((state) => state.cart.cartList);
+  const { cartSize, cartList } = useSelector((state) => state.cart);
 
   const renderedList = cartList.map((item) => (
     <CartItem
@@ -17,10 +17,12 @@ const Cart = () => {
     />
   ));
 
+  const empty = <p>Your cart is empty</p>;
+
   return (
     <div className={styles.cart}>
       <h3>Your Shopping Cart</h3>
-      {renderedList}
+      {cartSize ? renderedList : empty}
     </div>
   );
 };

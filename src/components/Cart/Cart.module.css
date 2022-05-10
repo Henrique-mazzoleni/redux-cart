@@ -12,3 +12,8 @@
     font-size: 1.5rem;
     margin-bottom: 10px;
 }
+
+.cart p {
+    text-align: center;
+    margin: 20px;
+}

@@ -1,0 +1,18 @@
+.notification {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 10%;
+    color: #ddd
+}
+
+.success {
+    background-color: #080;
+}
+
+.loading {
+    background-color: #008;
+}
+
+.failed {
+    background-color: #800;
+}

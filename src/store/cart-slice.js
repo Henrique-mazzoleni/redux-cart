@@ -17,12 +17,17 @@ const initialState = {
   ],
   cartList: [],
   cartSize: 0,
+  changed: false,
 };
 
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
+    setCart(state, action) {
+      state.cartList = action.payload;
+      if (state.cartSize === 0) state.cartList.forEach(item => state.cartSize += item.amount)
+    },
     addOne(state, action) {
       const item = state.cartList.find(
         (listItem) => listItem.id === action.payload.id
@@ -30,6 +35,7 @@ const cartSlice = createSlice({
       if (item) item.amount++;
       else state.cartList.unshift(action.payload);
       state.cartSize++;
+      state.changed = true;
     },
     removeOne(state, action) {
       const item = state.cartList.find(
@@ -41,6 +47,7 @@ const cartSlice = createSlice({
         );
       else item.amount--;
       state.cartSize--;
+      state.changed = true;
     },
   },
 });
