@@ -1,17 +1,19 @@
+import { useSelector } from "react-redux";
+
 import ProductItem from "./ProductItem";
 import styles from "./Products.module.css";
 
-const DUMMY_LIST = [
-  {
-    title: "Test",
-    price: 6.0,
-    description: 'This is a first product - amazing!',
-  },
-];
-
 const Products = (props) => {
-  const renderedItems = DUMMY_LIST.map((item) => (
-    <ProductItem title={item.title} price={item.price} description={item.description} />
+  const productList = useSelector((state) => state.cart.products);
+
+  const renderedItems = productList.map((item) => (
+    <ProductItem
+      id={item.id}
+      key={item.id}
+      title={item.title}
+      price={item.price}
+      description={item.description}
+    />
   ));
 
   return (

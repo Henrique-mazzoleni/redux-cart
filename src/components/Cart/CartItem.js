@@ -1,8 +1,23 @@
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../store";
+
 import Button from "../UI/Button";
 
 import styles from "./CartItem.module.css";
 
 const CartItem = (props) => {
+  const dispatch = useDispatch();
+
+  const addOneItemHandler = () => {
+    console.log("Adding");
+    dispatch(cartActions.addOne(props.id));
+  };
+
+  const removeOneItemHandler = () => {
+    console.log("Removing");
+    dispatch(cartActions.removeOne(props.id));
+  };
+
   return (
     <div className={styles["cart-item"]}>
       <div className={styles.description}>
@@ -13,10 +28,12 @@ const CartItem = (props) => {
         </div>
       </div>
       <div className={styles.amount}>
-        <span>x<h3>{props.amount}</h3></span>
+        <span>
+          x<h3>{props.amount}</h3>
+        </span>
         <div className={styles.actions}>
-          <Button>+</Button>
-          <Button>-</Button>
+          <Button onAction={addOneItemHandler}>+</Button>
+          <Button onAction={removeOneItemHandler}>-</Button>
         </div>
       </div>
     </div>

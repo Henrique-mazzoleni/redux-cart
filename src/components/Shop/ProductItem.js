@@ -1,10 +1,24 @@
+import { useDispatch } from 'react-redux';
+import { cartActions } from '../../store';
+
 import Button from '../UI/Button'
 
 import styles from "./ProductItem.module.css";
 
-
-
 const ProductItem = (props) => {
+    const dispatch = useDispatch()
+    
+    const addToCartHandler = () => {
+        console.log('adding to cart')
+
+        dispatch(cartActions.addToCart({
+            id: props.id,
+            title: props.title,
+            price: +props.price,
+            amount: 1,
+        }))
+    }
+
   return (
     <div className={styles.item}>
       <div className={styles.header}>
@@ -15,7 +29,7 @@ const ProductItem = (props) => {
           <p>{props.description}</p>
       </div>
       <div className={styles.actions}>
-          <Button>Add to Cart</Button>
+          <Button onAction={addToCartHandler} >Add to Cart</Button>
       </div>
     </div>
   );
