@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { cartActions } from "../../store";
+import { cartActions } from "../../store/cart-slice";
 
 import Button from "../UI/Button";
 
@@ -9,12 +9,10 @@ const CartItem = (props) => {
   const dispatch = useDispatch();
 
   const addOneItemHandler = () => {
-    console.log("Adding");
-    dispatch(cartActions.addOne(props.id));
+    dispatch(cartActions.addOne({ id: props.id }));
   };
 
   const removeOneItemHandler = () => {
-    console.log("Removing");
     dispatch(cartActions.removeOne(props.id));
   };
 

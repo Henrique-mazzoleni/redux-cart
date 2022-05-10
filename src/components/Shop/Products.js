@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import ProductItem from "./ProductItem";
 import styles from "./Products.module.css";
 
-const Products = (props) => {
+const Products = () => {
   const productList = useSelector((state) => state.cart.products);
 
   const renderedItems = productList.map((item) => (

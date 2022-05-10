@@ -2,7 +2,7 @@ import CartButton from "../Cart/CartButton";
 
 import styles from "./MainHeader.module.css";
 
-const MainHeader = (props) => {
+const MainHeader = () => {
   return (
     <div className={styles.header}>
       <h2>ReduxCart</h2>

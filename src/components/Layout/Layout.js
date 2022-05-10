@@ -1,13 +1,16 @@
 import { Fragment } from "react";
+import { useSelector } from 'react-redux';
 
 import MainHeader from "./MainHeader";
 import Cart from "../Cart/Cart";
 import Products from "../Shop/Products";
 
-const Layout = (props) => {
+const Layout = () => {
+    const showCart = useSelector(state => state.ui.showCart)
+
     return <Fragment>
         <MainHeader />
-        <Cart />
+        {showCart && <Cart />}
         <Products />
     </Fragment>
 }
